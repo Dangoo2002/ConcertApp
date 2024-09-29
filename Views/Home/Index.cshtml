@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ConcertBaseViewModel>
+
+<h1>Concert List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var concert in Model)
+    {
+        <tr>
+            <td>@concert.Name</td>
+            <td>@concert.ConcertDate.ToString("yyyy-MM-dd")</td>
+            <td>@concert.Location</td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Concerts", new { id = concert.ConcertId }, null) |
+                @Html.ActionLink("Edit", "Edit", "Concerts", new { id = concert.ConcertId }, null) |
+                @Html.ActionLink("Delete", "Delete", "Concerts", new { id = concert.ConcertId }, null)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Create New Concert", "Create", "Concerts", null, new { @class = "btn btn-primary" })
+</p>

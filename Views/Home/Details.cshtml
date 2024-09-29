@@ -1,0 +1,19 @@
+@model ConcertBaseViewModel
+
+<h1>Concert Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Name</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">Date</dt>
+    <dd class="col-sm-10">@Model.ConcertDate.ToString("yyyy-MM-dd")</dd>
+
+    <dt class="col-sm-2">Location</dt>
+    <dd class="col-sm-10">@Model.Location</dd>
+</dl>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Concerts", null, new { @class = "btn btn-secondary" }) |
+    @Html.ActionLink("Edit", "Edit", "Concerts", new { id = Model.ConcertId }, new { @class = "btn btn-primary" })
+</p>

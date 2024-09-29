@@ -1,0 +1,29 @@
+@model ConcertAddViewModel
+
+<h1>Create New Concert</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConcertDate"></label>
+        <input asp-for="ConcertDate" class="form-control" />
+        <span asp-validation-for="ConcertDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Concert</button>
+</form>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Concerts", null, new { @class = "btn btn-secondary" })
+</p>
